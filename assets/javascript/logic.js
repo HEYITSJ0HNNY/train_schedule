@@ -36,7 +36,7 @@ firstTrain = $("#inputFirstTrain").val();
 database.ref().on("child_added", function(childSnapshot) {
 var snap = childSnapshot.val();
 
-var trainFreq = snap.frequency;
+var trainFrequency = snap.frequency;
 
  var trainTime = snap.firstTrain;
  var timeConverted = moment(trainTime, "HH:mm").subtract(1, "years").format("X");
@@ -44,10 +44,11 @@ var trainFreq = snap.frequency;
 
   var timeDiff = moment().diff(moment.unix(trainTime), "minutes");
 
-   var tRemainder = moment().diff(moment.unix(trainTime)) % trainFreq;
-   var trainMinutes = trainFreq - tRemainder;
+   var tRemainder = moment().diff(moment.unix(trainTime)) % trainFrequency;
+   var trainMinutes = trainFrequency - tRemainder;
    var arrival = moment().add(trainMinutes, "m").format("hh:mm A");
 
-   $("#fillChart").append("<tr>" + "<td>" + snap.trainName + "</td>" + "<td>" + snap.destination +  "</td>" +"<td>" + snap.frequency + "</td>" + "<td>" + arrival + "</td>" +"<td>" + trainMinutes + "</td>")
+      $("#fillChart").append("<tr>" + "<td>" + snap.trainName + "</td>" + "<td>" + snap.destination +  "</td>" +"<td>" + snap.frequency + "</td>" + "<td>" + arrival + "</td>" +"<td>" + trainMinutes + "</td>")
+
 
  });
