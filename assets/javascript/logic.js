@@ -48,7 +48,10 @@ var trainFrequency = snap.frequency;
    var trainMinutes = trainFrequency - tRemainder;
    var arrival = moment().add(trainMinutes, "m").format("hh:mm A");
 
-      $("#fillChart").append("<tr>" + "<td>" + snap.trainName + "</td>" + "<td>" + snap.destination +  "</td>" +"<td>" + snap.frequency + "</td>" + "<td>" + arrival + "</td>" +"<td>" + trainMinutes + "</td>")
+      $("#fillChart").append("<tr>" + "<td>" + snap.trainName +
+      "</td>" + "<td>" + snap.destination +
+      "</td>" +"<td>" + snap.frequency +
+      "</td>" + "<td>" + arrival + "</td>" +"<td>" + trainMinutes + "</td>")
 
 
  });
